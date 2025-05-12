@@ -212,7 +212,7 @@ function sidebarType(a) {
   } else {
     var navbarBrand = document.querySelector('.navbar-brand-img');
     var navbarBrandImg = navbarBrand.src;
-    if (navbarBrandImg.includes('logo-ct-dark.png')) {
+    if (navbarBrandImg.includes('Flag_of_Albuera,_Leyte.png')) {
       var navbarBrandImgNew = navbarBrandImg.replace("logo-ct-dark", "logo-ct");
       navbarBrand.src = navbarBrandImgNew;
     }
