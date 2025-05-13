@@ -9972,6 +9972,7 @@ fieldset:disabled .btn {
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+  width: 100% !important;
 }
 
 .mb-5 {
@@ -10047,7 +10048,8 @@ fieldset:disabled .btn {
 }
 
 .ms-9 {
-  margin-left: 10rem !important;
+      margin-left: 38% !important;
+    margin-bottom: 50px;
 }
 
 .ms-10 {
@@ -12756,6 +12758,10 @@ fieldset:disabled .btn {
     margin-bottom: 16rem !important;
   }
 
+  .mlbb-0{
+    text-align: center;
+    width: 400px;
+  }
   .mb-sm-auto {
     margin-bottom: auto !important;
   }
