@@ -34,18 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const uniqueId = `image-collapse-${timestamp}`;
   const likeCount = likes ? Object.keys(likes).length : 0;
   const isLiked = likes && likes[uid];
+  const likedByAdmin = likes && likes["admin"]; // ✅ Check if admin liked this
 
   return `
     <div class="position-relative bg-light p-3 shadow-sm mb-4" style="border-radius: 15px;" data-id="${id}">
-<button class="btn btn-sm position-absolute top-0 end-0 text-muted report-btn" title="Report" style="z-index: 1;" data-id="${id}">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-    <path fill="#000" d="M12 17q.425 0 .713-.288T13 16t-.288-.712T12 15t-.712.288T11 16t.288.713T12 17m0-4q.425 0 .713-.288T13 12V8q0-.425-.288-.712T12 7t-.712.288T11 8v4q0 .425.288.713T12 13m-2.925 8q-.4 0-.762-.15t-.638-.425l-4.1-4.1q-.275-.275-.425-.638T3 14.926v-5.85q0-.4.15-.762t.425-.638l4.1-4.1q.275-.275.638-.425T9.075 3h5.85q.4 0 .763.15t.637.425l4.1 4.1q.275.275.425.638t.15.762v5.85q0 .4-.15.763t-.425.637l-4.1 4.1q-.275.275-.638.425t-.762.15z"/>
-  </svg>
-</button>
-
+      <button class="btn btn-sm position-absolute top-0 end-0 text-muted report-btn" title="Report" style="z-index: 1;" data-id="${id}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+          <path fill="#000" d="M12 17q.425 0 .713-.288T13 16t-.288-.712T12 15t-.712.288T11 16t.288.713T12 17m0-4q.425 0 .713-.288T13 12V8q0-.425-.288-.712T12 7t-.712.288T11 8v4q0 .425.288.713T12 13m-2.925 8q-.4 0-.762-.15t-.638-.425l-4.1-4.1q-.275-.275-.425-.638T3 14.926v-5.85q0-.4.15-.762t.425-.638l4.1-4.1q.275-.275.638-.425T9.075 3h5.85q.4 0 .763.15t.637.425l4.1 4.1q.275.275.425.638t.15.762v5.85q0 .4-.15.763t-.425.637l-4.1 4.1q-.275.275-.638.425t-.762.15z"/>
+        </svg>
+      </button>
 
       <div class="mb-1">
-        <h6 class="mb-0"><strong>${name || "Anonymous"}</strong></h6>
+        <h6 class="mb-0">
+          <strong>${name || "Anonymous"}</strong>
+          ${likedByAdmin ? '<span class="ms-2" title="Admin liked this">❤️</span>' : ""}
+        </h6>
         <small class="text-muted">${formatTimestamp(timestamp)}</small>
       </div>
 
@@ -70,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 }
+
 
 
   document.body.addEventListener("shown.bs.collapse", function (event) {
